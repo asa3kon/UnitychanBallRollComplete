@@ -6,6 +6,14 @@ using System;
 
 public class GoalChecker : MonoBehaviour {
 
+	[SerializeField]
+	private Animator runUnitychan;
+	public Animator RunUnitychan
+	{
+	    get { return this.runUnitychan; } 
+	    set { this.runUnitychan = value; }
+	}
+
 	public Text goalText;
 	private Rigidbody playerRb;
 	public Text timerText;
@@ -52,6 +60,9 @@ public class GoalChecker : MonoBehaviour {
 				// ゴールした瞬間は無重量に
 				playerRb = other.GetComponent<Rigidbody>();
 				playerRb.useGravity = false;
+
+				// アニメーションの変更
+				RunUnitychan.SetBool ("isGoal", true);
 
 				// 操作もできなくしよう
 				ball = other.GetComponent<myBallCon>();

@@ -13,6 +13,11 @@ public class CharaController : MonoBehaviour {
 	}
 
 	public GameObject target;
+
+	void Update(){
+		if (Input.GetKeyDown (KeyCode.Space)) {
+			anim.SetTrigger ("Jump");}
+	}
 	
 	// Update is called once per frame
 	void LateUpdate () {
